@@ -9,10 +9,10 @@ Python needs to be installed on the machine that is running this application. Yo
 **IMPORTANT**: Make sure you check the checkbox that says "Add Python 3.# to PATH" on the first window of the installer.
 
 ## Preparing the data input file
-To use this application, you need to provide a data input CSV file. This file should be called `input_data.csv`. The file should contain four columns:
+To use this application, you need to provide a data input CSV file. This file should be called `input_data.csv`, and should be stored in the root of the application folder. The file should contain four columns:
 - `id`: The Hubspot identifier of the company
 - `company_name`: The name of the company
-- `key`: This is the grouping identifier for pairs of companies that you want to group together. It should be a number. A key should be only used for two records.
+- `key`: This is the grouping identifier for pairs of companies that you want to group together. It should be a number. A given key should only be associated with two records.
 - `action`: This determines which company should be kept and which company should be merged into the kept company. The values for this field should be only "keep" or "merge" (both lowercase)
 
 An example `input_data.csv` is included in the application folder, and looks like:

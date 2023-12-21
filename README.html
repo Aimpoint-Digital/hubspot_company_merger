@@ -31,11 +31,11 @@
 <p>Python needs to be installed on the machine that is running this application. You can download Python at <a href="https://www.python.org/downloads/release/python-3121/">https://www.python.org/downloads/release/python-3121/</a></p>
 <p><strong>IMPORTANT</strong>: Make sure you check the checkbox that says "Add Python 3.# to PATH" on the first window of the installer.</p>
 <h2 id="preparing-the-data-input-file">Preparing the data input file </h2>
-<p>To use this application, you need to provide a data input CSV file. This file should be called <code>input_data.csv</code>. The file should contain four columns:</p>
+<p>To use this application, you need to provide a data input CSV file. This file should be called <code>input_data.csv</code>, and should be stored in the root of the application folder. The file should contain four columns:</p>
 <ul>
 <li><code>id</code>: The Hubspot identifier of the company</li>
 <li><code>company_name</code>: The name of the company</li>
-<li><code>key</code>: This is the grouping identifier for pairs of companies that you want to group together. It should be a number. A key should be only used for two records.</li>
+<li><code>key</code>: This is the grouping identifier for pairs of companies that you want to group together. It should be a number. A given key should only be associated with two records.</li>
 <li><code>action</code>: This determines which company should be kept and which company should be merged into the kept company. The values for this field should be only "keep" or "merge" (both lowercase)</li>
 </ul>
 <p>An example <code>input_data.csv</code> is included in the application folder, and looks like:</p>

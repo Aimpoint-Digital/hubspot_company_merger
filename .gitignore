@@ -9,3 +9,5 @@ data/**/**.csv
 data/**/**.json
 **/__pycache__/**
 **.log
+src/tests/**.csv
+**/__pycache__
