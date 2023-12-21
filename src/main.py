@@ -34,6 +34,8 @@ class HubspotAPI():
         with open(self.input_data_file, mode='r', encoding='utf-8') as file:
             csv_reader = csv.DictReader(file)
             data = list(csv_reader)
+            for row in data:
+                row['action'] = row['action'].lower() # Lowercase the action column
         try:
             ValidateCSV(data)
         except ValueError as e:
@@ -236,7 +238,8 @@ class HubspotAPI():
             self.intermediate.append(companies_with_child_parent)
             self.results.append(merged_companies)
 
-        self.write_to_json(self.missing, f"./data/errors/missing_companies_{timestamp}.json")
+        if self.missing:
+            self.write_to_json(self.missing, f"./data/errors/missing_companies_{timestamp}.json")
         self.write_to_json(companies_with_child_parent, f"./data/intermediate/companies_with_child_parent_{timestamp}.json")
         self.write_to_json(self.results, f"./data/outputs/merged_companies_{timestamp}.json")
         return self.results
