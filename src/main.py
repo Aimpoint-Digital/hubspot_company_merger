@@ -239,9 +239,9 @@ class HubspotAPI():
             self.results.append(merged_companies)
 
         if self.missing:
-            self.write_to_json(self.missing, f"./data/errors/missing_companies_{timestamp}.json")
-        self.write_to_json(companies_with_child_parent, f"./data/intermediate/companies_with_child_parent_{timestamp}.json")
-        self.write_to_json(self.results, f"./data/outputs/merged_companies_{timestamp}.json")
+            self.write_to_json(self.missing, f"./data/errors/missing_{timestamp}.json")
+        self.write_to_json(self.intermediate, f"./data/intermediate/pre_merge_{timestamp}.json")
+        self.write_to_json(self.results, f"./data/outputs/merged_{timestamp}.json")
         return self.results
 
 
