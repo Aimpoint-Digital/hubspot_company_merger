@@ -54,14 +54,16 @@ class HubspotAPI():
         with open(output_path, 'w', encoding='utf-8') as file:
             json.dump(data, file, indent=2)
 
+        
     def check_company_exists(self, company_id):
         url = f"https://api.hubapi.com/crm/v3/objects/companies/{company_id}"
         response = requests.get(url, headers=self.headers)
-        if response.status_code!= 200:
+        if response.status_code == 200 and company_id == response.json()["id"]:
+            return True
+        else:
             error_message = f"Error fetching company with id {company_id}. Status code: {response.status_code}"
             logging.error(error_message)
-            raise Exception(error_message)
-        return True
+            return False
 
     def get_child_parent_companies(self, company_id, child_or_parent):
         url = f"https://api.hubapi.com/crm-associations/v1/associations/{company_id}/HUBSPOT_DEFINED/{self.associations_code_map[child_or_parent]}"
@@ -221,6 +223,7 @@ class HubspotAPI():
                     break
 
             if company_missing:
+                logging.info(f"Skipping key {key}: One or more companies not found or already merged.")
                 continue
 
             companies_with_child_parent = self.enrich_companies(companies)
