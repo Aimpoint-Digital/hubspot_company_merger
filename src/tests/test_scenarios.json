@@ -1,0 +1,91 @@
+[
+    {
+        "name": "Keep Company with Children",
+        "companies": ["test_keep", "test_merge", "test_keep_child_1", "test_keep_child_2"],
+        "associations": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child_1", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child_2", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child_1", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child_2", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Keep Company with Parent",
+        "companies": ["test_keep", "test_merge", "test_keep_parent"],
+        "associations": [
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Merge Company with Children",
+        "companies": ["test_keep", "test_merge", "test_merge_child_1", "test_merge_child_2"],
+        "associations": [
+            {"fromObjectId": "test_merge", "toObjectId": "test_merge_child_1", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_merge", "toObjectId": "test_merge_child_2", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_merge_child_1", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep", "toObjectId": "test_merge_child_2", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+
+        ]
+    },
+    {
+        "name": "Merge Company with Parent",
+        "companies": ["test_keep", "test_merge", "test_merge_parent"],
+        "associations": [
+            {"fromObjectId": "test_merge_parent", "toObjectId": "test_merge", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_merge_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Both Companies with Children",
+        "companies": ["test_keep", "test_merge", "test_keep_child", "test_merge_child"],
+        "associations": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_merge", "toObjectId": "test_merge_child", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep", "toObjectId": "test_merge_child", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Both Companies with Parent",
+        "companies": ["test_keep", "test_merge", "test_keep_parent", "test_merge_parent"],
+        "associations": [
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_merge_parent", "toObjectId": "test_merge", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Both Companies with Children and Parent",
+        "companies": ["test_keep", "test_merge", "test_keep_child", "test_merge_child", "test_keep_parent", "test_merge_parent"],
+        "associations": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_merge", "toObjectId": "test_merge_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_merge_parent", "toObjectId": "test_merge", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ],
+        "expected_result": [
+            {"fromObjectId": "test_keep", "toObjectId": "test_keep_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep", "toObjectId": "test_merge_child", "category": "HUBSPOT_DEFINED", "definitionId": 13},
+            {"fromObjectId": "test_keep_parent", "toObjectId": "test_keep", "category": "HUBSPOT_DEFINED", "definitionId": 13}
+        ]
+    },
+    {
+        "name": "Neither Company with Children nor Parent",
+        "companies": ["test_keep", "test_merge"],
+        "associations": [],
+        "expected_result": []
+    }
+]

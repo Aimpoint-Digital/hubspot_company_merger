@@ -1,0 +1,17 @@
+id,company_name,key,action
+18486022464,test_merge,1,merge
+18486094648,test_keep,1,keep
+18486520702,test_merge,2,merge
+18486192051,test_keep,2,keep
+18486094653,test_merge,3,merge
+18485949103,test_keep,3,keep
+18486773296,test_merge,4,merge
+18486816412,test_keep,4,keep
+18486228011,test_merge,5,merge
+18486458942,test_keep,5,keep
+18486184742,test_merge,6,merge
+18486472368,test_keep,6,keep
+18486442332,test_merge,7,merge
+18485864742,test_keep,7,keep
+18486520719,test_merge,8,merge
+18486822241,test_keep,8,keep

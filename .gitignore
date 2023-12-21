@@ -1,0 +1,11 @@
+.idea/
+dev/
+**/**.env
+**/.twbr
+**.ipynb
+**/data/**/**.csv
+**/data/**/**.json
+data/**/**.csv
+data/**/**.json
+**/__pycache__/**
+**.log
