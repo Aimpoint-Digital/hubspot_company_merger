@@ -8,6 +8,8 @@ Python needs to be installed on the machine that is running this application. Yo
 
 **IMPORTANT**: Make sure you check the checkbox that says "Add Python 3.# to PATH" on the first window of the installer.
 
+After installing Python, open the Windows Command Prompt, navigate to the application folder (e.g. `cd path/to/folder/`) and run `pip install -r src/requirements.txt`
+
 ## Preparing the data input file
 To use this application, you need to provide a data input CSV file. This file should be called `input_data.csv`, and should be stored in the root of the application folder. The file should contain four columns:
 - `id`: The Hubspot identifier of the company
