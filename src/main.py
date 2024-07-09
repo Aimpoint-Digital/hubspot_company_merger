@@ -176,6 +176,9 @@ class HubspotAPI():
                 self.create_association(company_id, self.get_parent_value(company), self.associations_code_map["child_to_parent"])
 
     def create_association(self, from_id, to_id, definition_id):
+        if from_id == to_id:
+            logging.info(f"No association created as from_id ({from_id}) is equal to to_id ({to_id}).")
+            return
         url = "https://api.hubapi.com/crm-associations/v1/associations"
         payload = {
             "fromObjectId": from_id,
